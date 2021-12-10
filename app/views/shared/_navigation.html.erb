@@ -5,10 +5,7 @@
       <div class="navbar-header float-end">
         <ul class="nav navbar-right">
           <li class="nav-item">
-            <%= link_to("Logout link_to method:delete", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-info") %>
-          </li>
-          <li class="nav-item">
-            <%= button_to("Logout button_to method:delete", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-secondary ms-5") %>
+            <%= button_to("Logout button_to method:delete", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-secondary ms-5", data: { turbo: false }) %>
           </li>
         </ul>
       </div>
