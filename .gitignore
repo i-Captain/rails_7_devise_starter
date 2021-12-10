@@ -7,10 +7,6 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-*
-
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -40,3 +36,4 @@
 /node_modules
 
 # Ignore database.yml  linked via deploy.rb
+/config/database.yml
