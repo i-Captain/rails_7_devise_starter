@@ -1,0 +1,17 @@
+<header class="navbar navbar-expand-md navbar-light bg-white sticky-top">
+  <nav class="container flex-wrap flex-md-nowrap" aria-label="Main navigation">
+    <a class="navbar-brand p-0 me-2" href="<%= root_url %>" aria-label="Bootstrap">App Name</a>
+    <% if user_signed_in? %>
+      <div class="navbar-header float-end">
+        <ul class="nav navbar-right">
+          <li class="nav-item">
+            <%= link_to("Logout link_to method:delete", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-info") %>
+          </li>
+          <li class="nav-item">
+            <%= button_to("Logout button_to method:delete", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-secondary ms-5") %>
+          </li>
+        </ul>
+      </div>
+    <%- end %>
+  </nav>
+</header>

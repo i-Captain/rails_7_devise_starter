@@ -11,6 +11,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "shared/navigation" %>
+    <div class="container">
+      <p class="text-info">notice: <%= notice %></p>
+      <p class="text-warning">alert: <%= alert %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>
