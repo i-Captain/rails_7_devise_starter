@@ -12,7 +12,7 @@ set :deploy_to, "/home/deploy/#{fetch :application}"
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
 
 # Only keep the last 5 releases to save disk space
-set :keep_releases, 5
+set :keep_releases, 10
 
 set :branch, ENV['BRANCH'] if ENV['BRANCH']
 
@@ -58,7 +58,7 @@ namespace :deploy do
   task :settag do
     `
       git tag deploy_#{fetch :rails_env}_#{Time.now.strftime('%Y-%m-%d_%H_%M_%S')}
-      git push origin master --tags
+      git push origin #{fetch :branch} --tags
     `
   end
 end
