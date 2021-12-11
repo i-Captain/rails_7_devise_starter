@@ -53,7 +53,7 @@ test:
 #
 production:
   <<: *default
-  url <%= Rails.application.credentials.mysql_url %>
+  url: <%= Rails.application.credentials.mysql_url %>
 #  database: rails_7_devise_production
 #  username: deploy
 #  password: <%= ENV['DATABASE_PASSWORD'] %>
