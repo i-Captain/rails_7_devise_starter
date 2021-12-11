@@ -7,7 +7,7 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-server '161.35.195.239', user: 'deploy', roles: %w{app db web}
+server Rails.application.credentials.server_ip, user: 'deploy', roles: %w{app db web}
 
 # role-based syntax
 # ==================
