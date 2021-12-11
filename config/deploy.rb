@@ -51,4 +51,16 @@ append :linked_files, "config/master.key", "config/database.yml"
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
-set :use_sudo, false
+# set :use_sudo, false
+
+namespace :deploy do
+  desc 'Tag the successful deploy'
+  task :settag do
+    `
+      git tag deploy_#{fetch :rails_env}_#{Time.now.strftime('%Y-%m-%d_%H_%M_%S')}
+      git push origin master --tags
+    `
+  end
+end
+
+after 'deploy', 'deploy:settag'
