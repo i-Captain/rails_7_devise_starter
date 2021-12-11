@@ -14,13 +14,13 @@ default: &default
   encoding: utf8mb4
   collation: utf8mb4_unicode_ci
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  host: <%= ENV.fetch('MYSQL_HOST') { 'localhost' } %>
 
 development:
   <<: *default
   database: rails_7_devise_development
+  username: root
+  password:
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -28,6 +28,8 @@ development:
 test:
   <<: *default
   database: rails_7_devise_test
+  username: root
+  password:
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -44,13 +46,14 @@ test:
 # URL environment variable explicitly:
 #
 #   production:
-#     url: <%= ENV['MY_APP_DATABASE_URL'] %>
+#     url: <%= ENV['DATABASE_URL'] %>
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
 production:
   <<: *default
-  database: rails_7_devise_production
-  username: deploy
-  password: <%= ENV['FOO_APP_DATABASE_PASSWORD'] %>
+  url <%= Rails.application.credentials.mysql_url %>
+#  database: rails_7_devise_production
+#  username: deploy
+#  password: <%= ENV['DATABASE_PASSWORD'] %>
