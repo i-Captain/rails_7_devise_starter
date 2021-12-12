@@ -37,3 +37,6 @@
 
 # Ignore database.yml  linked via deploy.rb
 /config/database.yml
+
+# Ignore ENV variables
+.rbenv-vars
