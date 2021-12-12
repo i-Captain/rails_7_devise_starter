@@ -47,7 +47,7 @@ namespace :deploy do
   desc 'Tag the successful deploy'
   task :settag do
     `
-      git tag deploy_#{fetch :rails_env}_#{Time.now.strftime('%Y-%m-%d_%H_%M_%S')}
+      git tag deploy_#{fetch :rails_env}_#{fetch :release_name}
       git push origin #{fetch :branch} --tags
     `
   end
