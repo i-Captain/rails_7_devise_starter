@@ -1,0 +1,6 @@
+en:
+  views:
+    application:
+      html_head:
+        title: Rails7DeviseStarter
+        description:  Yor description for Rails7DeviseStarter

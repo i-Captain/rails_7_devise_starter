@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
   <head>
-    <title>Rails7DeviseStarter</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <title>
+      <%= "#{Rails.env[0..2].upcase} | " if Rails.env != 'production'%>
+      <%= content_for?(:title) ? yield(:title) : t('views.application.html_head.title') %>
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : t('views.application.html_head.description') %>" />
+    <%= render partial: 'shared/favicons' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,8 +19,7 @@
   <body>
     <%= render "shared/navigation" %>
     <div class="container">
-      <p class="text-info"><%= notice %></p>
-      <p class="text-warning"><%= alert %></p>
+      <%= render "shared/flash" %>
       <%= yield %>
     </div>
   </body>
