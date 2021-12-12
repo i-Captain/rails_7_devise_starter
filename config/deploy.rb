@@ -47,7 +47,7 @@ namespace :deploy do
   desc 'Tag the successful deploy'
   task :settag do
     `
-      git tag deploy_#{fetch :rails_env}_#{fetch :release_name}
+      git tag deploy_#{fetch :rails_env}_#{fetch :release_timestamp}
       git push origin #{fetch :branch} --tags
     `
   end
