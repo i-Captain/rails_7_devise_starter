@@ -211,7 +211,7 @@ EDITOR="code --wait" bin/rails credentials:edit
 ```
 
 Another setup ended with
-SSHKit::Runner::ExecuteError: Exception while executing as deploy@68.183.213.90: passenger-config exit status: 1
+SSHKit::Runner::ExecuteError: Exception while executing as deploy@1.2.3.4: passenger-config exit status: 1
 passenger-config stdout: Nothing written
 passenger-config stderr: *** ERROR: Phusion Passenger(R) doesn't seem to be running. If you are sure that it
 is running, then the causes of this problem could be one of....
