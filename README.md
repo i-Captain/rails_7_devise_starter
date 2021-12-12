@@ -1,31 +1,16 @@
 # README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I am following this tutorial from [GoRails](https://gorails.com/deploy/ubuntu/20.04) and used a digitalocean droplet.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 3.0.2
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+* Configuration rails 7.0.0.rc1 -j esbuild --css bootstrap | with devise
 
 * Deployment instructions
 
 * Unsorted
 
-I am following this tutorial from [GoRails](https://gorails.com/deploy/ubuntu/20.04)
-
-In my case it is a digitalocean droplet
 ```
 ssh root@1.2.3.4
 adduser deploy
