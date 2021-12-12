@@ -5,7 +5,7 @@ lock "~> 3.16.0"
 
 set :application, "myapp"
 set :repo_url, "git@github.com:i-Captain/rails_7_devise_starter.git"
-set :branch, ENV['BRANCH'] || 'development'
+set :branch, ENV['BRANCH'] || `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
