@@ -111,13 +111,21 @@ server {
 
 # Creating a MySQL Database
 sudo apt-get install mysql-server mysql-client libmysqlclient-dev
+
+# Open the MySQL CLI to change root passwort from blank to something
+sudo mysql -u root -p
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password by 'QwHhkz4Rs82J-61T6Mzr';\q
+
 sudo mysql_secure_installation
+
+
 # Open the MySQL CLI to create the user and database
 sudo mysql -u root -p
 
 CREATE DATABASE IF NOT EXISTS myapp_production;
-CREATE USER IF NOT EXISTS 'deploy'@'localhost' IDENTIFIED BY '$omeFancyPassword123';
-CREATE USER IF NOT EXISTS 'deploy'@'%' IDENTIFIED BY '$omeFancyPassword123';
+CREATE USER IF NOT EXISTS 'deploy'@'localhost' IDENTIFIED BY 'SomeFancyPassword123';
+CREATE USER IF NOT EXISTS 'deploy'@'%' IDENTIFIED BY 'SomeFancyPassword123';
 GRANT ALL PRIVILEGES ON myapp_production.* TO 'deploy'@'localhost';
 GRANT ALL PRIVILEGES ON myapp_production.* TO 'deploy'@'%';
 FLUSH PRIVILEGES;
@@ -149,7 +157,7 @@ require 'capistrano/passenger'
 require 'capistrano/rbenv'
 
 set :rbenv_type, :user
-set :rbenv_ruby, '3.0.2'
+set :rbenv_ruby, '3.1.2'
 
 ## config/deploy.rb
 set :application, "myapp"
@@ -177,7 +185,7 @@ SERVER_IP=1.2.3.4
 
 # The mysql_url is used in database.yml
 EDITOR="code --wait" bin/rails credentials:edit
-mysql_url: mysql2://deploy:$omeFancyPassword123@localhost/myapp_production
+mysql_url: mysql2://deploy:SomeFancyPassword123@localhost/myapp_production
 
 bundle lock --add-platform x86_64-linux
 git push
@@ -208,6 +216,10 @@ RAILS_ENV=production bin/rails c
 RAILS_ENV=production bundle exec rake db:reset db:migrate
 
 EDITOR="code --wait" bin/rails credentials:edit
+
+cat /var/log/nginx/error.log
+cat /home/deploy/myapp/current/log/production.log
+
 ```
 
 Another setup ended with
