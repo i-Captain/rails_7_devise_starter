@@ -56,16 +56,16 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
 git clone https://github.com/rbenv/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars
 exec $SHELL
-rbenv install 3.0.2
-rbenv global 3.0.2
+rbenv install 3.1.2
+rbenv global 3.1.2
 ruby -v
-# ruby 3.0.2
+# ruby 3.1.2
 
 # This installs the latest Bundler, currently 2.x.
 gem install bundler
 # Test and make sure bundler is installed correctly, you should see a version number.
 bundle -v
-# Bundler version 2.2.33
+# Bundler version 2.3.14
 
 # Installing NGINX & Passenger
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
@@ -115,10 +115,9 @@ sudo apt-get install mysql-server mysql-client libmysqlclient-dev
 # Open the MySQL CLI to change root passwort from blank to something
 sudo mysql -u root -p
 
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password by 'QwHhkz4Rs82J-61T6Mzr';\q
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password by 'YourSecretMySQLPassword';\q
 
 sudo mysql_secure_installation
-
 
 # Open the MySQL CLI to create the user and database
 sudo mysql -u root -p
