@@ -191,7 +191,7 @@ git push
 cap production deploy BRANCH=main
 ```
 
-The bundle install --jobs 4 --quiet (frooze... on a $6 Droplet - not on $48)
+The bundle install --jobs 4 --quiet (frooze... on a $5 Droplet - not on $10)
 ...
 
 I killed the froozen bundle with htop and called 'bundle install' as user deploy on the droplet.
